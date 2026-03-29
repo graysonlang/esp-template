@@ -1,0 +1,45 @@
+{
+  "name": "@graysonlang/esp-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Project template for @graysonlang/esp, with VS Code build and debug configuration",
+  "keywords": [],
+  "homepage": "https://github.com/graysonlang/esp-template#readme",
+  "bugs": {
+    "url": "https://github.com/graysonlang/esp-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graysonlang/esp-template.git"
+  },
+  "license": "MIT",
+  "author": "Grayson Lang",
+  "type": "module",
+  "scripts": {
+    "prepare": "node ./scripts/build.mjs --sync-launch",
+    "ports": "node ./scripts/build.mjs --print-port",
+    "sync:launch": "node ./scripts/build.mjs --sync-launch",
+    "build": "node ./scripts/build.mjs --lint --minify",
+    "serve": "node ./scripts/build.mjs --lint --sourcemap --watch --serve --debug-port=auto",
+    "serve:https": "ESP_DEV_CERT_NAME=$npm_package_config_esp_dev_cert_name npm run serve -- --host=0.0.0.0",
+    "dev": "npm run serve -- --proxy --launch",
+    "dev:https": "npm run serve:https -- --proxy --launch",
+    "vscode:build": "npm run build -- --vscode",
+    "vscode:debug": "npm run serve -- --vscode",
+    "vscode:debug:https": "npm run serve:https -- --vscode",
+    "cert:dev": "ESP_DEV_CERT_NAME=$npm_package_config_esp_dev_cert_name esp-generate-dev-cert",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "esp_dev_cert_name": "graysonlang-esp-dev"
+  },
+  "dependencies": {
+    "@graysonlang/esp": "^1.9.0"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "esbuild": "^0.28.0",
+    "eslint": "^10.8.0"
+  }
+}

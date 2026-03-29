@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Checkout is all this needs. Set explicitly rather than inherited, since the
+# repo/org default for GITHUB_TOKEN can be read-write and a template has no say
+# in where it lands.
+permissions:
+  contents: read
+
+jobs:
+  # This repo carries no tests — it exists to prove that esp's runner, plugins
+  # and VS Code wiring work from an independent consumer. Lint and a clean
+  # build are the whole contract, so there is deliberately no `npm test` step.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # `npm ci` runs the `prepare` script, which renders .vscode/launch.json
+      # from launch_template.json — that path is exercised here too.
+      - run: npm ci
+
+      - run: npm run lint
+      - run: npm run build
