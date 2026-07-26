@@ -39,10 +39,7 @@ function getOptions(args, verbose, logger) {
       '.html': 'file',
     },
     outdir: 'www',
-    plugins: [
-      pluginGlobCopy({ logger }),
-      pluginImp({ logger, verbose }),
-    ],
+    plugins: [pluginGlobCopy({ logger }), pluginImp({ logger, verbose })],
     target: ['esnext'],
     ...args,
   };

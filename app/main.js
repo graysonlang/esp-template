@@ -3,7 +3,7 @@
 import index from './index.html';
 export function getFilePaths() {
   return { index };
-};
+}
 
 import { buildInfo } from '../src/index.js';
 

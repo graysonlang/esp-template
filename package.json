@@ -1,6 +1,6 @@
 {
   "name": "@graysonlang/esp-template",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Project template for @graysonlang/esp, with VS Code build and debug configuration",
   "keywords": [],
@@ -28,18 +28,16 @@
     "vscode:debug": "npm run serve -- --vscode",
     "vscode:debug:https": "npm run serve:https -- --vscode",
     "cert:dev": "ESP_DEV_CERT_NAME=$npm_package_config_esp_dev_cert_name esp-generate-dev-cert",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "biome check .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:fix": "biome check --write ."
   },
   "config": {
     "esp_dev_cert_name": "graysonlang-esp-dev"
   },
-  "dependencies": {
-    "@graysonlang/esp": "^1.9.0"
-  },
   "devDependencies": {
-    "@stylistic/eslint-plugin": "^5.10.0",
-    "esbuild": "^0.28.0",
-    "eslint": "^10.8.0"
+    "@biomejs/biome": "^2.5.0",
+    "@graysonlang/esp": "^2.0.0",
+    "esbuild": "^0.28.0"
   }
 }

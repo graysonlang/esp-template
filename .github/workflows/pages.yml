@@ -51,7 +51,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # `build` runs esbuild with --lint --minify, so this also gates on eslint.
+      # `build` runs esbuild with --lint --minify, so this also gates on biome.
       # Output goes to www/ (the `outdir` in scripts/build.mjs) — keep the
       # upload path below in step with it.
       - name: Build
