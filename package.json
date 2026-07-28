@@ -1,6 +1,6 @@
 {
   "name": "@graysonlang/esp-template",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "description": "Project template for @graysonlang/esp, with VS Code build and debug configuration",
   "keywords": [],
@@ -16,7 +16,7 @@
   "author": "Grayson Lang",
   "type": "module",
   "scripts": {
-    "prepare": "node ./scripts/build.mjs --sync-launch",
+    "prepare": "node ./scripts/prepare.mjs",
     "ports": "node ./scripts/build.mjs --print-port",
     "sync:launch": "node ./scripts/build.mjs --sync-launch",
     "build": "node ./scripts/build.mjs --lint --minify",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
-    "@graysonlang/esp": "^2.0.0",
+    "@graysonlang/esp": "^2.1.0",
     "esbuild": "^0.28.0"
   }
 }
